@@ -18,6 +18,6 @@ class Pergunta(models.Model):
 class Opcao(models.Model):
     def __str__(self):
         return self.texto_opcao
-    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
+    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE, related_name='opcoes')
     texto_opcao = models.CharField(max_length=200)
     votos = models.IntegerField(default=0)
