@@ -1,0 +1,23 @@
+# Ambiente virtual
+venv/
+
+# Variáveis de ambiente
+.env
+
+# Banco SQLite
+db.sqlite3
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Migrações (opcional, mas recomendado manter)
+# *.py dentro de migrations/ exceto __init__.py
+
+# VS Code
+.vscode/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
