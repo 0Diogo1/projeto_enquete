@@ -2,6 +2,7 @@ import datetime
 from arrow import now
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Pergunta(models.Model):
@@ -14,6 +15,7 @@ class Pergunta(models.Model):
 
     texto_pergunta = models.CharField(max_length=200)
     data_publicacao = models.DateTimeField("data de publicação")
+    criado_por = models.ForeignKey(User, on_delete=models.CASCADE, related_name='perguntas')
 
 class Opcao(models.Model):
     def __str__(self):

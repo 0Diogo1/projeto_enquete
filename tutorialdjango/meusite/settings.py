@@ -92,6 +92,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+# define o backend de autenticação para usar JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}   
 
 
 # Password validation
