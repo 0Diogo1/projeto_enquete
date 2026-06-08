@@ -3,6 +3,7 @@ import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 import { usePerguntas } from '../hooks/usePerguntas'
 import ModalOpcoes from '../components/ModalOpcoes'
+import { formatarData } from '../utils/formatarData'
 
 function Lista() {
   const { perguntas, loading } = usePerguntas()
@@ -10,7 +11,8 @@ function Lista() {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">Enquetes</h1>
+      <div className="flex justify-content-between align-items-center mb-4">
+      </div>
       <DataTable
         value={perguntas}
         loading={loading}
@@ -19,9 +21,11 @@ function Lista() {
         onRowClick={(e) => setPerguntaSelecionadaId(e.data.id)}
         style={{ cursor: 'pointer' }}
       >
-        <Column field="id" header="ID" style={{ width: '5%' }} />
         <Column field="texto_pergunta" header="Pergunta" />
-        <Column field="data_publicacao" header="Data de Publicação" />
+        <Column field="criado_por" header="Autor" />
+        <Column field="data_publicacao" header="Data de Publicação"
+          body={(row) => formatarData(row.data_publicacao)}
+        />
       </DataTable>
 
       <ModalOpcoes

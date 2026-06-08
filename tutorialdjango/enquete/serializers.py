@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class OpcaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Opcao
-        fields = ['id', 'texto_opcao', 'votos']
+        fields = ['id', 'texto_opcao', 'votos', 'pergunta']
 
 class PerguntaSerializer(serializers.ModelSerializer):
     opcoes = OpcaoSerializer(many=True, read_only=True)
